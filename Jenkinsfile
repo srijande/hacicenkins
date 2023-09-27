@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    imagename = "srijande/hacicenkins"
+    imagename = "srijande/jenkins-test"
     dockerImage = ''
   }
   agent any
@@ -20,8 +20,10 @@ pipeline {
     }
     stage('Remove Unused docker image') {
       steps{
-        sh "docker rmi $imagename:$BUILD_NUMBER"
-         sh "docker rmi $imagename:latest"
+        sh printf($(git rev-parse --short HEAD))
+        // sh "docker rmi $imagename:$BUILD_NUMBER"
+        sh "docker rmi $imagename:latest"
+
 
       }
     }
