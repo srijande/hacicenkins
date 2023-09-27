@@ -22,7 +22,6 @@ pipeline {
       steps{
         sh "docker rmi $imagename:latest"
 
-
       }
     }
   }
