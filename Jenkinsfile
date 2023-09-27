@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Remove Unused docker image') {
       steps{
-        sh printf($(git rev-parse --short HEAD))
+        // sh printf($(git rev-parse --short HEAD))
         // sh "docker rmi $imagename:$BUILD_NUMBER"
         sh "docker rmi $imagename:latest"
 
